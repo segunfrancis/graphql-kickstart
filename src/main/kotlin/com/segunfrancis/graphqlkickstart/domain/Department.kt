@@ -20,12 +20,12 @@ data class Department(
     @Id
     @GeneratedValue
     @EqualsAndHashCode.Include
-    private val id: Int? = null,
-    private val name: String? = null,
+    val id: Int? = null,
+    val name: String? = null,
 
     @OneToMany(mappedBy = "department")
-    private val employees: Set<Employee>? = null,
+    val employees: Set<Employee>? = null,
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private val organization: Organization? = null
+    val organization: Organization? = null
 )

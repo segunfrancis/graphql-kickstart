@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 data class EmployeeInput(
-    private val firstName: String? = null,
-    private val lastName: String? = null,
-    private val position: String? = null,
-    private val salary: Int? = null,
-    private val age: Int? = null,
-    private val departmentId: Int? = null,
-    private val organizationId: Int? = null
+    val firstName: String? = null,
+    val lastName: String? = null,
+    val position: String? = null,
+    val salary: Int,
+    val age: Int,
+    val departmentId: Int,
+    val organizationId: Int
 )

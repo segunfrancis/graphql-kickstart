@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 data class DepartmentInput(
-    private val name: String? = null,
-    private val organizationId: Int? = null
+    val name: String? = null,
+    val organizationId: Int
 )

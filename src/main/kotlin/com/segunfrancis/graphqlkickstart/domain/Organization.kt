@@ -18,12 +18,12 @@ data class Organization(
     @Id
     @GeneratedValue
     @EqualsAndHashCode.Include
-    private val id: Int? = null,
-    private val name: String? = null,
+    val id: Int? = null,
+    val name: String? = null,
 
     @OneToMany(mappedBy = "organization")
-    private val departments: Set<Department>? = null,
+    val departments: Set<Department>? = null,
 
     @OneToMany(mappedBy = "organization")
-    private val employees: Set<Employee>? = null
+    val employees: Set<Employee>? = null
 )

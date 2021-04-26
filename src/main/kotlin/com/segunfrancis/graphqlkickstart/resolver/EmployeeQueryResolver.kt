@@ -14,6 +14,11 @@ import javax.persistence.criteria.Root
 @Component
 class EmployeeQueryResolver(private val repository: EmployeeRepository) :
     GraphQLQueryResolver {
+
+    fun employees(): Iterable<Employee?>? {
+        return repository.findAll()
+    }
+
     fun employeesWithFilter(filter: EmployeeFilter): Iterable<Employee?>? {
         var spec: Specification<Employee?>? = null
         if (filter.salary != null) spec = bySalary(filter.salary)
@@ -23,6 +28,10 @@ class EmployeeQueryResolver(private val repository: EmployeeRepository) :
             spec?.and(byPosition(filter.position))
                 ?: byPosition(filter.position)
         return if (spec != null) repository.findAll(spec) else repository.findAll()
+    }
+
+    fun employee(id: Int): Employee {
+        return repository.findById(id).get()
     }
 
     private fun bySalary(filterField: FilterField): Specification<Employee?> {

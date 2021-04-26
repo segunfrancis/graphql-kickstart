@@ -18,10 +18,10 @@ class DepartmentMutableResolver (
             organizationRepository.findById(departmentInput.organizationId).get()
         return departmentRepository.save(
             Department(
-                null,
-                departmentInput.name,
-                null,
-                organization
+                id = null,
+                name = departmentInput.name,
+                organization = organization,
+                employees = null
             )
         )
     }

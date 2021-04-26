@@ -4,7 +4,7 @@ type QueryResolver {
 }
 
 type MutationResolver {
-    newDepartment(department: DepartmentInput!): Department
+    newDepartment(departmentnInput: DepartmentInput!): Department
 }
 
 input DepartmentInput {

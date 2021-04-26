@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
 data class OrganizationInput(
-    val name: String? = null
+    val name: String
 )

@@ -19,12 +19,12 @@ data class Employee(
     @Id
     @GeneratedValue
     @EqualsAndHashCode.Include
-    val id: Int? = null,
-    val firstName: String? = null,
-    val lastName: String? = null,
-    val position: String? = null,
-    val salary: Int = 0,
-    val age: Int = 0,
+    val id: Int?,
+    val firstName: String,
+    val lastName: String,
+    val position: String,
+    val salary: Int,
+    val age: Int,
 
     @ManyToOne(fetch = FetchType.LAZY)
     val department: Department? = null,

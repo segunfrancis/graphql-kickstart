@@ -5,7 +5,7 @@ extend type QueryResolver {
 }
 
 extend type MutationResolver {
-  newEmployee(employee: EmployeeInput!): Employee
+  newEmployee(employeeInput: EmployeeInput!): Employee
 }
 
 input EmployeeInput {

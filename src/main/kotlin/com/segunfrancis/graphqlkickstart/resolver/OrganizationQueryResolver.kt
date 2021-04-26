@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component
 class OrganizationQueryResolver(private val repository: OrganizationRepository) :
     GraphQLQueryResolver {
 
-    fun organisations(): Iterable<Organization> {
+    fun organizations(): Iterable<Organization> {
         return repository.findAll()
     }
 
-    fun organization(id: Int?): Organization? {
-        return repository.findById(id!!).orElseThrow {
-            RuntimeException("Organization with id:$id not found")
+    fun organization(id: Int): Organization {
+        return repository.findById(id).orElseThrow {
+            NoSuchElementException("Organization with id:$id was not found")
         }
     }
 }

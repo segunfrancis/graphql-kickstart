@@ -32,8 +32,8 @@ class DepartmentQueryResolver(private val repository: DepartmentRepository) :
             repository.findAll()
     }
 
-    fun department(id: Int?, environment: DataFetchingEnvironment): Department? {
-        var spec = byId(id!!)
+    fun department(id: Int, environment: DataFetchingEnvironment): Department {
+        var spec = byId(id)
         val selectionSet = environment.selectionSet
         if (selectionSet.contains("employees")) spec = spec.and(fetchEmployees())
         if (selectionSet.contains("organization")) spec = spec.and(fetchOrganization())
@@ -44,10 +44,7 @@ class DepartmentQueryResolver(private val repository: DepartmentRepository) :
     private fun fetchOrganization(): Specification<Department?> {
         return Specification { root: Root<Department?>, _: CriteriaQuery<*>?, _: CriteriaBuilder? ->
             val f: Fetch<Department, Organization> =
-                root.fetch(
-                    "organization",
-                    JoinType.LEFT
-                )
+                root.fetch("organization", JoinType.LEFT)
             val join: Join<Department, Organization> = f as Join<Department, Organization>
             join.on
         }
@@ -56,10 +53,7 @@ class DepartmentQueryResolver(private val repository: DepartmentRepository) :
     @Suppress("UNCHECKED_CAST")
     private fun fetchEmployees(): Specification<Department?> {
         return Specification { root: Root<Department?>, _: CriteriaQuery<*>?, _: CriteriaBuilder? ->
-            val f = root.fetch<Department, Employee>(
-                    "employees",
-                    JoinType.LEFT
-                )
+            val f = root.fetch<Department, Employee>("employees", JoinType.LEFT)
             val join = f as Join<Department, Employee>
             join.on
         }

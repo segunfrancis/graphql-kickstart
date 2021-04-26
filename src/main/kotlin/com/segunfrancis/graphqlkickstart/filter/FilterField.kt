@@ -6,12 +6,13 @@ import javax.persistence.criteria.Path
 import javax.persistence.criteria.Predicate
 
 @Data
-class FilterField {
-    private val operator: String? = null
-    private val value: String? = null
+data class FilterField(
+    private val operator: String,
+    private val value: String
+) {
     fun generateCriteria(builder: CriteriaBuilder, field: Path<Int>?): Predicate? {
         try {
-            val v = value!!.toInt()
+            val v = value.toInt()
             when (operator) {
                 "lt" -> return builder.lt(field, v)
                 "le" -> return builder.le(field, v)

@@ -6,7 +6,9 @@ import com.segunfrancis.graphqlkickstart.repository.OrganizationRepository
 import graphql.kickstart.tools.GraphQLMutationResolver
 import com.segunfrancis.graphqlkickstart.domain.Employee
 import com.segunfrancis.graphqlkickstart.domain.EmployeeInput
+import org.springframework.stereotype.Component
 
+@Component
 class EmployeeMutableResolver(
     private val departmentRepository: DepartmentRepository,
     private val employeeRepository: EmployeeRepository,

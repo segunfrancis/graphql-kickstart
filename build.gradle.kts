@@ -29,6 +29,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.postgresql:postgresql")
     implementation("com.graphql-java-kickstart:graphql-spring-boot-starter:$graphQlJavaKickStartVersion")
     implementation("com.graphql-java-kickstart:graphiql-spring-boot-starter:$graphQlJavaKickStartVersion")
     implementation("com.graphql-java-kickstart:voyager-spring-boot-starter:$graphQlJavaKickStartVersion")
